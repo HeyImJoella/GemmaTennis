@@ -8,7 +8,8 @@ const playerNames = [
   "Paulien",
   "José",
   "Sonja",
-  "Irene"
+  "Irene",
+  "Reserve",
 ];
 
 let playerCount = playerNames.length;
