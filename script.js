@@ -8,35 +8,34 @@ const playerNames = [
   "Paulien",
   "José",
   "Sonja",
-  "Irene",
+  "Irene"
 ];
 
 let playerCount = playerNames.length;
-
 const playerContainer = document.getElementById("players");
+const addPlayerBtn = document.getElementById("addPlayerBtn");
+const generateTeamsBtn = document.getElementById("generateTeamsBtn");
 
 function createPlayerRow(name = "", checked = true) {
   const row = document.createElement("div");
   row.innerHTML = `
-  <input type="text" id="name${playerCount}" value="${name}" />
-  <label class="present-label">
-    Aanwezig
-    <input type="checkbox" id="check${playerCount}" ${
-    checked ? "checked" : ""
-  } />
-  </label>
-`;
+    <input type="text" id="name${playerCount}" value="${name}" />
+    <label class="present-label">
+      Aanwezig
+      <input type="checkbox" id="check${playerCount}" ${checked ? "checked" : ""} />
+    </label>
+  `;
   playerContainer.appendChild(row);
   playerCount++;
 }
 
-playerNames.forEach((name) => createPlayerRow(name));
+playerNames.forEach(name => createPlayerRow(name));
 
-function addPlayer() {
+addPlayerBtn.addEventListener("click", () => {
   createPlayerRow("", true);
-}
+});
 
-function generateTeams() {
+generateTeamsBtn.addEventListener("click", () => {
   const activePlayers = [];
 
   for (let i = 0; i < playerCount; i++) {
@@ -64,11 +63,9 @@ function generateTeams() {
 
   for (let i = 0; i < activePlayers.length; i += 2) {
     if (i + 1 < activePlayers.length) {
-      teamsOutput.innerHTML += `<div class="team">🎾 Team: ${
-        activePlayers[i]
-      } & ${activePlayers[i + 1]}</div>`;
+      teamsOutput.innerHTML += `<div class="team">🎾 Team: ${activePlayers[i]} & ${activePlayers[i + 1]}</div>`;
     } else {
       teamsOutput.innerHTML += `<div class="team">🚨 Odd one out: ${activePlayers[i]}</div>`;
     }
   }
-}
+});
