@@ -1,14 +1,14 @@
 const playerNames = [
-  "Gemma",
-  "Mariska",
   "Ellen",
-  "Jolanda",
-  "Els T",
   "Els H",
-  "Paulien",
-  "José",
-  "Sonja",
+  "Els T",
+  "Gemma",
   "Irene",
+  "Jolanda",
+  "José",
+  "Mariska",
+  "Paulien",
+  "Sonja",
   "Reserve",
 ];
 
